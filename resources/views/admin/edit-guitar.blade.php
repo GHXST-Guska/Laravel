@@ -54,7 +54,7 @@
                        required>
             </div>
             <div class="mb-4">
-                <label for="type_description" class="block text-sm font-bold text-gray-700">Type Description</label>
+                <label for="type_description" class="block text-sm font-bold text-gray-700">Detailed Description</label>
                 <textarea id="type_description" name="type_description"
                           class="w-full border-gray-300 rounded-lg shadow-sm focus:border-green-500 focus:ring-green-500"
                           required>{{ old('type_description', $guitarType->type_description ?? '') }}</textarea>

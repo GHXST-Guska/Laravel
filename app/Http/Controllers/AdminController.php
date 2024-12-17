@@ -11,7 +11,6 @@ class AdminController extends Controller
 {
     public function index(Request $request)
     {
-        // Menangani filter berdasarkan nama gitar dan jenis
         $query = Guitar::query();
 
         if ($request->has('search')) {
@@ -22,7 +21,6 @@ class AdminController extends Controller
             $query->where('brand', 'like', '%' . $request->input('brand') . '%');
         }
 
-        // Pagination dengan 10 item per halaman
         $guitars = $query->paginate(10);
 
         return view('admin.guitars', compact('guitars'));
@@ -115,7 +113,6 @@ class AdminController extends Controller
     {
         $guitar = Guitar::where('id_list', $id)->firstOrFail();
 
-        // Hapus file gambar jika ada
         if ($guitar->image_url && Storage::exists('public/' . $guitar->image_url)) {
             Storage::delete('public/' . $guitar->image_url);
         }
